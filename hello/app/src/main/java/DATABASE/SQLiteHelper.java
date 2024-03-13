@@ -12,7 +12,6 @@ import com.example.helloworld.R;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import model.GiaoDich;
@@ -34,6 +33,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 ")";
         db.execSQL(sql);
         String insertValues = "INSERT INTO loaiGD (src, name) VALUES " +
+                "("+ R.drawable.all+",'Tất cả'), " +
                 "("+ R.drawable.eating+",'Ăn Uống'), " +
                 "("+ R.drawable.ecology+",'Tiền Nước'), " +
                 "("+ R.drawable.education+",'Học tập'), " +
@@ -56,11 +56,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 ")";
         db.execSQL(createTableNew);
         String insertValues1 = "INSERT INTO GiaoDich (date, sotien, loaigd, chitiet,inorout) VALUES " +
-                "('1111-01-01', 10000, 1, 'ádfasdf',1)," + // Đảm bảo định dạng ngày tháng YYYY-MM-DD
-                "('1234-02-02', 11234, 2, 'qwerqwer',2)," +
-                "('4124-03-03', 152131, 3, 'xvczxcv',1)," +
-                "('2002-12-05', 234562, 5, 'uenciao',2)," +
-                "('2024-01-01', 123512, 8, '274icujw3ixj',1)";
+                "('2024-03-01', 10000, 2, 'ádfasdf',1)," + // Đảm bảo định dạng ngày tháng YYYY-MM-DD
+                "('2024-03-02', 51322, 3, 'qwerqwer',2)," +
+                "('2024-03-03', 234, 4, 'xvczxcv',1)," +
+                "('2024-03-05', 1246, 6, 'uenciao',2)," +
+                "('2024-03-07', 842, 3, 'qwerqwer',2)," +
+                "('2024-03-08', 632, 4, 'xvczxcv',1)," +
+                "('2024-03-11', 777, 6, 'uenciao',2)," +
+                "('2024-03-18', 332, 3, 'qwerqwer',2)," +
+                "('2024-03-23', 894, 4, 'xvczxcv',1)," +
+                "('2024-03-25', 12, 6, 'uenciao',2)," +
+                "('2024-03-31', 52368, 9, '274icujw3ixj',1)";
         db.execSQL(insertValues1);
     }
 
@@ -102,6 +108,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return list;
     }
     public List<GiaoDich> getAllGD(String order) {
+        if(order.equals("1")) order="";
         List<GiaoDich> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         String whereClause = "loaigd = ?";
@@ -162,5 +169,58 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         long id = db.insert("GiaoDich", null, values);
         db.close();
         return id;
+    }
+
+    public List<GiaoDich> getListOrderGD(String idloaigd, String sotiennhonhat, String ngayStart, String ngayEnd) {
+        List<GiaoDich> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        StringBuilder whereClauseBuilder = new StringBuilder();
+        List<String> whereArgsList = new ArrayList<>();
+
+        if(idloaigd.equals("1")) idloaigd="";
+        if (!idloaigd.equals("")) {
+            System.out.println(idloaigd+" id loai gd");
+            whereClauseBuilder.append("loaigd = ?");
+            whereArgsList.add(idloaigd);
+        }
+
+        if (!sotiennhonhat.equals("")) {
+            if (whereClauseBuilder.length() > 0) {
+                whereClauseBuilder.append(" AND ");
+            }
+            whereClauseBuilder.append("sotien >= ?");
+            whereArgsList.add(sotiennhonhat);
+        }
+
+        if (!ngayStart.equals("") && !ngayEnd.equals("")) {
+            if (whereClauseBuilder.length() > 0) {
+                whereClauseBuilder.append(" AND ");
+            }
+            whereClauseBuilder.append("date >= ?");
+            whereClauseBuilder.append(" AND date <= ?");
+            whereArgsList.add(ngayStart);
+            whereArgsList.add(ngayEnd);
+        }
+
+        String[] whereArgs = whereArgsList.toArray(new String[0]);
+
+        Cursor rs = sqLiteDatabase.query("GiaoDich", null,
+                whereClauseBuilder.length() > 0 ? whereClauseBuilder.toString() : null,
+                whereClauseBuilder.length() > 0 ? whereArgs : null,
+                null, null, null);
+
+        while (rs != null && rs.moveToNext()) {
+            int id = rs.getInt(0);
+            String date = rs.getString(1);
+            String sotien = rs.getString(2);
+            String loaigd = rs.getString(3);
+            String mota = rs.getString(4);
+            int inorout = rs.getInt(5);
+            LoaiGD loaiGD1 = getLoaiGD(loaigd);
+
+            list.add(new GiaoDich(id, Date.valueOf(date), Float.parseFloat(sotien), loaiGD1, mota, inorout));
+        }
+        return list;
     }
 }

@@ -14,36 +14,6 @@
         tools:targetApi="31" >
 
         <activity
-            android:name=".NhapThuChi"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".LichSuGiaoDich"
-            android:exported="false" />
-        <activity
-            android:name=".ChiTiet_GiaoDich"
-            android:exported="false" />
-
-        <activity
-            android:name=".PhanLoai"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Nhap_date_mota"
-            android:exported="false" >
-
-        </activity>
-        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
@@ -52,6 +22,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".NhapThuChi"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".LichSuGiaoDich"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".ChiTiet_GiaoDich"
+            android:exported="false" />
+
+        <activity
+            android:name=".PhanLoai"
+            android:exported="false" >
+
+        </activity>
+        <activity
+            android:name=".Nhap_date_mota"
+            android:exported="false" >
+
+        </activity>
+
     </application>
 
 </manifest>

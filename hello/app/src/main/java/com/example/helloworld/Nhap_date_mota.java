@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.SQLException;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import DATABASE.SQLiteHelper;
 import model.GiaoDich;
@@ -93,6 +90,7 @@ public class Nhap_date_mota extends AppCompatActivity {
         button = findViewById(R.id.button);
         editTextDate = findViewById(R.id.editTextDate);
         editTextTextMultiLine = findViewById(R.id.editTextTextMultiLine);
+
     }
     public void showDatePickerDialog(View v) {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {

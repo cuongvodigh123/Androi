@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -74,6 +75,7 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
     @Override
     public void onClickLoai(View view, int position) {
         LoaiGD loaiGD = listLoaiGD.get(position);
+        Toast.makeText(getApplicationContext(),""+loaiGD.getID(),Toast.LENGTH_SHORT).show();
         getDanhsachGD(String.valueOf(loaiGD.getID()));
     }
 

@@ -23,6 +23,7 @@ public class NhapThuChiAdapter extends RecyclerView.Adapter<NhapThuChiAdapter.Vi
     private Context mContext;
     public NhapThuChiAdapter(Context context,List<LoaiGD> loaiGDS) {
         this.mContext = mContext;
+        loaiGDS.remove(0);
         this.loaiGDS = loaiGDS;
     }
 
