@@ -92,6 +92,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         return list;
     }
+    public long insertLoaiGiaoDich(LoaiGD loaiGD){
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("src", loaiGD.getSrcIcon());
+        values.put("name", loaiGD.getNameIcon());
+        long id = db.insert("loaiGD", null, values);
+        db.close();
+        return id;
+    }
     public LoaiGD getLoaiGD(String id){
         LoaiGD list = null;
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();

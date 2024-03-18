@@ -124,6 +124,14 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
 
     @Override
     public void onClickGD(View view, int positon) {
-
+        GiaoDich giaoDich = listgd.get(positon);
+        System.out.println(giaoDich.getMota()+" Mo ta giao dich");
+        Intent intent = new Intent(LichSuGiaoDich.this, ChiTiet_GiaoDich.class);
+        Bundle args = new Bundle();
+        args.putParcelable("keyGD",giaoDich);
+        args.putParcelable("keyLoaiGD",giaoDich.getLoaiGD());
+        intent.putExtra("giaodich",args);
+        intent.putExtra("activity","LichSuGiaoDich");
+        startActivity(intent);
     }
 }
