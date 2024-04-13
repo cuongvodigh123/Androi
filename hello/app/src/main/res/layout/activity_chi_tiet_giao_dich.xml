@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ChiTiet_GiaoDich">
 
+<<<<<<< HEAD
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="match_parent"
@@ -60,10 +61,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_home" />
+=======
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="413dp"
+        android:layout_height="142dp"
+        android:background="@drawable/ic_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#00ff00"
+            app:srcCompat="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="340dp"
+            android:layout_marginTop="35dp"
+            android:background="#A6C5A6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_home_foreground" />
+>>>>>>> nguyencongvan
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_marginVertical="50dp"
             android:layout_marginHorizontal="80dp"
@@ -86,10 +118,28 @@
         app:layout_constraintBottom_toBottomOf="@id/guideline2">
 
     </ImageView>
+=======
+            android:layout_height="34dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="35dp"
+            android:text="Chi Tiết Giao Dịch"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </FrameLayout>
+
+>>>>>>> nguyencongvan
     <LinearLayout
         android:id="@+id/idxem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginTop="10dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="9dp"
@@ -97,21 +147,44 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline2">
+=======
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="148dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+>>>>>>> nguyencongvan
 
         <TextView
             android:id="@+id/idgd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:background="@drawable/bg_botron"
             android:text=" 1000 nghìn "
             android:textColor="@color/tim"
             android:textSize="25dp">
 
         </TextView>
+=======
+            android:text="1000 nghìn ">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/kieugd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày 11/11/111">
+        </TextView>
+
+>>>>>>> nguyencongvan
         <TextView
             android:id="@+id/sotien"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="so tien"
             android:textSize="25dp"
             android:textColor="#00B0FF"
@@ -119,6 +192,9 @@
             android:backgroundTint="#A17383"
             android:layout_marginTop="15dp"
             >
+=======
+            android:text="Ngày 11/11/111">
+>>>>>>> nguyencongvan
 
         </TextView>
 
@@ -126,12 +202,24 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="ngay"
             android:textSize="25dp"
             android:textColor="#E31608"
             android:background="@drawable/bg_botron"
             android:backgroundTint="#E3D76E"
             android:layout_marginTop="15dp">
+=======
+            android:text="Loại Ăn Uống">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/loaigd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loại Ăn Uống">
+>>>>>>> nguyencongvan
 
         </TextView>
 
@@ -139,17 +227,22 @@
             android:id="@+id/mota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="Mo ta"
             android:textSize="25dp"
             android:textColor="#FF0057"
             android:background="@drawable/bg_botron"
             android:backgroundTint="#BFECE7"
             android:layout_marginTop="15dp">
+=======
+            android:text="Loại Ăn Uống">
+>>>>>>> nguyencongvan
 
         </TextView>
 
     </LinearLayout>
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/kieugd"
         android:layout_width="190dp"
@@ -183,4 +276,6 @@
 
     </TextView>
 
+=======
+>>>>>>> nguyencongvan
 </androidx.constraintlayout.widget.ConstraintLayout>

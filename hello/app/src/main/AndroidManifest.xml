@@ -13,6 +13,21 @@
         android:theme="@style/Theme.Helloworld"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
+=======
+            android:name=".ChiTiet_BieuDoSoSanhThuChi"
+            android:exported="false" />
+        <activity
+            android:name=".BieuDoSoSanhThuChi"
+            android:exported="false" />
+        <activity
+            android:name=".ChiTiet_BieuDoXuHuongTaiChinh"
+            android:exported="false" />
+        <activity
+            android:name=".BieuDoXuHuongTaiChinh"
+            android:exported="false" />
+        <activity
+>>>>>>> nguyencongvan
             android:name=".add_loai_giaodich"
             android:exported="false" />
         <activity
@@ -26,19 +41,33 @@
         </activity>
         <activity
             android:name=".NhapThuChi"
+<<<<<<< HEAD
             android:exported="false"></activity>
         <activity
             android:name=".LichSuGiaoDich"
             android:exported="false"></activity>
+=======
+            android:exported="false" />
+        <activity
+            android:name=".LichSuGiaoDich"
+            android:exported="false" />
+>>>>>>> nguyencongvan
         <activity
             android:name=".ChiTiet_GiaoDich"
             android:exported="false" />
         <activity
             android:name=".PhanLoai"
+<<<<<<< HEAD
             android:exported="false"></activity>
         <activity
             android:name=".Nhap_date_mota"
             android:exported="false"></activity>
+=======
+            android:exported="false" />
+        <activity
+            android:name=".Nhap_date_mota"
+            android:exported="false" />
+>>>>>>> nguyencongvan
     </application>
 
 </manifest>

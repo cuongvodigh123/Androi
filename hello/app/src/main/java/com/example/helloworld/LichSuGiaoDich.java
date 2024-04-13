@@ -29,7 +29,11 @@ import model.LoaiGD;
 public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapter.PLGDListen{
     private ImageView backhome,home;
     private TextView texttest,editTextDate2,editTextDate3;
+<<<<<<< HEAD
     private EditText editTextPhone,editTextPhone1;
+=======
+    private EditText editTextPhone;
+>>>>>>> nguyencongvan
     private Button button2;
     private Spinner spinner;
     private RecyclerView recyclerView;
@@ -37,8 +41,11 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
     private SQLiteHelper db;
     private List<LoaiGD> listLoaigd;
     private List<GiaoDich> listgd;
+<<<<<<< HEAD
     private String idloaigd="0",sotienmin="",sotienmax="",ngayStart="",ngayEnd="";
     static final int REQUEST_CODE_ACTIVITY_2 = 2;
+=======
+>>>>>>> nguyencongvan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +87,7 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
         editTextDate2 = findViewById(R.id.editTextDate2);
         recyclerView = findViewById(R.id.recyclerView);
         editTextPhone = findViewById(R.id.editTextPhone);
+<<<<<<< HEAD
         editTextPhone1 = findViewById(R.id.editTextPhone1);
     }
     public void search(View v){
@@ -90,6 +98,16 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
         ngayStart = editTextDate2.getText().toString();
         ngayEnd = editTextDate3.getText().toString();
         listgd = db.getListOrderGD(idloaigd,sotienmin,sotienmax,ngayStart,ngayEnd);
+=======
+    }
+    public void search(View v){
+        String idloaigd = spinner.getSelectedItem().toString();
+        Toast.makeText(getApplicationContext(),idloaigd,Toast.LENGTH_LONG).show();
+        String sotien = editTextPhone.getText().toString();
+        String ngayStart = editTextDate2.getText().toString();
+        String ngayEnd = editTextDate3.getText().toString();
+        listgd = db.getListOrderGD(idloaigd,sotien,ngayStart,ngayEnd);
+>>>>>>> nguyencongvan
         phanLoaiGDAdapter = new PhanLoaiGDAdapter(listgd);
         phanLoaiGDAdapter.setPlgdListen(this);
         recyclerView.setAdapter(phanLoaiGDAdapter);
@@ -134,6 +152,7 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
         Bundle args = new Bundle();
         args.putParcelable("keyGD",giaoDich);
         args.putParcelable("keyLoaiGD",giaoDich.getLoaiGD());
+<<<<<<< HEAD
 
         intent.putExtra("giaodich",args);
         intent.putExtra("activity","LichSuGiaoDich");
@@ -167,5 +186,10 @@ public class LichSuGiaoDich extends AppCompatActivity implements PhanLoaiGDAdapt
                 search(getCurrentFocus());
             }
         }
+=======
+        intent.putExtra("giaodich",args);
+        intent.putExtra("activity","LichSuGiaoDich");
+        startActivity(intent);
+>>>>>>> nguyencongvan
     }
 }

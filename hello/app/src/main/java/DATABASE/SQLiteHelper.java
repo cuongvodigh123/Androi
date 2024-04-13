@@ -5,16 +5,22 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> nguyencongvan
 
 import androidx.annotation.Nullable;
 
 import com.example.helloworld.R;
 
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+=======
+>>>>>>> nguyencongvan
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +31,15 @@ import model.LoaiGD;
 public class SQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="ChiTieu.db";
     private static int DATABASE_VERSION = 1;
+<<<<<<< HEAD
     private final Context mContext;
     public SQLiteHelper(@Nullable Context context) {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
         mContext = context;
+=======
+    public SQLiteHelper(@Nullable Context context) {
+        super(context,DATABASE_NAME,null,DATABASE_VERSION);
+>>>>>>> nguyencongvan
     }
 
     @Override
@@ -187,7 +198,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return id;
     }
 
+<<<<<<< HEAD
     public List<GiaoDich> getListOrderGD(String idloaigd, String sotienmin,String sotienmax, String ngayStart, String ngayEnd) {
+=======
+    public List<GiaoDich> getListOrderGD(String idloaigd, String sotiennhonhat, String ngayStart, String ngayEnd) {
+>>>>>>> nguyencongvan
         List<GiaoDich> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
@@ -201,11 +216,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             whereArgsList.add(idloaigd);
         }
 
+<<<<<<< HEAD
         if (!sotienmin.equals("")) {
+=======
+        if (!sotiennhonhat.equals("")) {
+>>>>>>> nguyencongvan
             if (whereClauseBuilder.length() > 0) {
                 whereClauseBuilder.append(" AND ");
             }
             whereClauseBuilder.append("sotien >= ?");
+<<<<<<< HEAD
             whereArgsList.add(sotienmin);
         }
 
@@ -218,10 +238,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
 
         if (!ngayStart.equals("")) {
+=======
+            whereArgsList.add(sotiennhonhat);
+        }
+
+        if (!ngayStart.equals("") && !ngayEnd.equals("")) {
+>>>>>>> nguyencongvan
             if (whereClauseBuilder.length() > 0) {
                 whereClauseBuilder.append(" AND ");
             }
             whereClauseBuilder.append("date >= ?");
+<<<<<<< HEAD
             whereArgsList.add(ngayStart);
         }
 
@@ -230,6 +257,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 whereClauseBuilder.append(" AND ");
             }
             whereClauseBuilder.append("date <= ?");
+=======
+            whereClauseBuilder.append(" AND date <= ?");
+            whereArgsList.add(ngayStart);
+>>>>>>> nguyencongvan
             whereArgsList.add(ngayEnd);
         }
 

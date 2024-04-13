@@ -12,8 +12,13 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.162"
         app:layout_constraintStart_toStartOf="parent"/>
+=======
+        app:layout_constraintGuide_percent="0.16142271"
+        app:layout_constraintStart_toStartOf="parent" />
+>>>>>>> nguyencongvan
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
@@ -21,7 +26,11 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.22"
+=======
+        app:layout_constraintGuide_percent="0.22298221"
+>>>>>>> nguyencongvan
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -39,7 +48,11 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.4"
+=======
+        app:layout_constraintGuide_percent="0.34"
+>>>>>>> nguyencongvan
         app:layout_constraintStart_toStartOf="parent" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -65,7 +78,11 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.48"
+=======
+        app:layout_constraintGuide_percent="0.43"
+>>>>>>> nguyencongvan
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -74,7 +91,11 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintGuide_percent="0.55"
+=======
+        app:layout_constraintGuide_percent="0.5"
+>>>>>>> nguyencongvan
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -84,6 +105,7 @@
         android:layout_height="142dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/ic_shape"
+<<<<<<< HEAD
         app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,14 +129,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_home" />
+=======
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backhome"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#00ff00"
+            app:srcCompat="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="340dp"
+            android:layout_marginTop="35dp"
+            android:background="#A6C5A6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_home_foreground" />
+>>>>>>> nguyencongvan
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="80dp"
             android:layout_marginVertical="50dp"
+=======
+            android:layout_height="34dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="35dp"
+>>>>>>> nguyencongvan
             android:text="Lịch sử giao dịch"
             android:textColor="@color/white"
             android:textSize="25dp"
@@ -129,6 +183,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+<<<<<<< HEAD
         android:layout_width="431dp"
         android:layout_height="378dp"
         android:layout_marginBottom="33dp"
@@ -138,6 +193,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline7">
+=======
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline7"
+        app:layout_constraintVertical_bias="0.0">
+>>>>>>> nguyencongvan
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -196,23 +263,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+<<<<<<< HEAD
         android:text="Số tiền trong khoảng"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.39" />
 
+=======
+        android:text="Số tiền nhỏ nhất"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.472" />
+>>>>>>> nguyencongvan
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="190dp"
         android:layout_height="48dp"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Mốc dưới"
+=======
+        android:hint="Số tiền"
+>>>>>>> nguyencongvan
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
+<<<<<<< HEAD
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -228,6 +308,10 @@
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/editTextPhone"
         app:layout_constraintVertical_bias="0.905" />
+=======
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate3"
+        app:layout_constraintVertical_bias="0.3" />
+>>>>>>> nguyencongvan
 
     <TextView
         android:id="@+id/textView16"
@@ -261,7 +345,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="search"
+<<<<<<< HEAD
         android:text="Tìm kiếm"
+=======
+        android:text="Search"
+>>>>>>> nguyencongvan
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -273,7 +361,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginTop="12dp"
+<<<<<<< HEAD
         android:text=""
+=======
+        android:text="TextView"
+>>>>>>> nguyencongvan
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.025"
