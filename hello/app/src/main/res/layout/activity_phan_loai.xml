@@ -18,55 +18,30 @@
 
         <ImageView
             android:id="@+id/back"
-<<<<<<< HEAD
             android:layout_width="56dp"
             android:layout_height="52dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="0dp"
-=======
-            android:layout_width="36dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="35dp"
-            android:background="#00ff00"
->>>>>>> nguyencongvan
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back" />
 
         <ImageView
             android:id="@+id/home"
-<<<<<<< HEAD
             android:layout_width="56dp"
             android:layout_height="52dp"
             android:layout_gravity="center_vertical|end"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_home" />
-=======
-            android:layout_width="36dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="340dp"
-            android:layout_marginTop="35dp"
-            android:background="#A6C5A6"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_home_foreground" />
->>>>>>> nguyencongvan
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
-<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:layout_marginVertical="50dp"
             android:layout_marginHorizontal="80dp"
             android:layout_gravity="center"
-=======
-            android:layout_height="34dp"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="35dp"
->>>>>>> nguyencongvan
             android:text="Phân Loại"
             android:textColor="@color/white"
             android:textSize="25dp"

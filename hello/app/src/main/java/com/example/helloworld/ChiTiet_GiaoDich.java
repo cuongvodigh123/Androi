@@ -14,11 +14,7 @@ import model.LoaiGD;
 
 public class ChiTiet_GiaoDich extends AppCompatActivity {
     private TextView idgd,sotien,date,loaigd,mota,kieugd;
-<<<<<<< HEAD
     private ImageView back,home,imageView2;
-=======
-    private ImageView back,home;
->>>>>>> nguyencongvan
     private String currentState;
     private Intent intent;
     @Override
@@ -31,7 +27,6 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
             public void onClick(View v) {
                 Class<?> previousActivity;
                 if (currentState.equals("PhanLoai")) {
-<<<<<<< HEAD
                     Intent intent1 = new Intent();
                     String idLoaigd = intent.getStringExtra("idLoaigd");
                     intent1.putExtra("idLoaigd", idLoaigd);
@@ -54,14 +49,6 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
                     finish();
                 }
 
-=======
-                    previousActivity = PhanLoai.class;
-                } else {
-                    previousActivity = LichSuGiaoDich.class;
-                }
-                Intent intent = new Intent(ChiTiet_GiaoDich.this, previousActivity);
-                startActivity(intent);
->>>>>>> nguyencongvan
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +62,6 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
         GiaoDich giaoDich = (GiaoDich) args.getParcelable("keyGD");
         System.out.println(giaoDich.getMota()+" Mo ta giao dich chi tiet");
         LoaiGD loaiGD = (LoaiGD) args.getParcelable("keyLoaiGD");
-<<<<<<< HEAD
         idgd.setText(" Mã giao dịch: "+ giaoDich.getID());
         sotien.setText(" Số tiền: "+giaoDich.getSotien()+" nghìn đồng");
         date.setText(" Ngày: "+giaoDich.getDate());
@@ -84,15 +70,6 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
         imageView2.setImageResource(loaiGD.getSrcIcon());
         if(giaoDich.getKieugd()==1) kieugd.setText("Tiền ra");
         else kieugd.setText("Tiền vào");
-=======
-        idgd.setText("Mã giao dịch: "+ giaoDich.getID());
-        sotien.setText("Số tiền: "+giaoDich.getSotien());
-        date.setText("Ngày: "+giaoDich.getDate());
-        loaigd.setText("Loại giao dịch: "+loaiGD.getNameIcon());
-        mota.setText("Mô tả: "+giaoDich.getMota());
-        if(giaoDich.getKieugd()==1) kieugd.setText("Tiền chi");
-        else kieugd.setText("Tiền thu");
->>>>>>> nguyencongvan
     }
     private void initView(){
         intent = getIntent();
@@ -105,9 +82,6 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
         loaigd = findViewById(R.id.loaigd);
         mota = findViewById(R.id.mota);
         kieugd = findViewById(R.id.kieugd);
-<<<<<<< HEAD
         imageView2 = findViewById(R.id.imageView2);
-=======
->>>>>>> nguyencongvan
     }
 }

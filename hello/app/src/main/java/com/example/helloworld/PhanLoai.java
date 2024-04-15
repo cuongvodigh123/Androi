@@ -7,10 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.EditText;
-=======
->>>>>>> nguyencongvan
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,19 +24,13 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
     private ImageView back,home;
     private TextView testText;
     private List<LoaiGD> listLoaiGD ;
-<<<<<<< HEAD
     private String idLoaigd;
-=======
->>>>>>> nguyencongvan
     private List<GiaoDich> list;
     private RecyclerView recyclerView,recyclerViewGD;
     private PhanLoaiAdapter phanLoaiAdapter ;
     private PhanLoaiGDAdapter phanLoaiGDAdapter;
     private SQLiteHelper db;
-<<<<<<< HEAD
     static final int REQUEST_CODE_ACTIVITY_2 = 1;
-=======
->>>>>>> nguyencongvan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +58,7 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
         recyclerView.setLayoutManager(new GridLayoutManager(this,1));
 
         getDanhsachGD("");
-<<<<<<< HEAD
         idLoaigd = "";
-=======
->>>>>>> nguyencongvan
     }
     private void getDanhsachGD(String order){
         list = db.getAllGD(order);
@@ -92,10 +80,7 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
     public void onClickLoai(View view, int position) {
         LoaiGD loaiGD = listLoaiGD.get(position);
         Toast.makeText(getApplicationContext(),""+loaiGD.getID(),Toast.LENGTH_SHORT).show();
-<<<<<<< HEAD
         idLoaigd = String.valueOf(loaiGD.getID());
-=======
->>>>>>> nguyencongvan
         getDanhsachGD(String.valueOf(loaiGD.getID()));
     }
 
@@ -109,7 +94,6 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
         args.putParcelable("keyLoaiGD",giaoDich.getLoaiGD());
         intent.putExtra("giaodich",args);
         intent.putExtra("activity","PhanLoai");
-<<<<<<< HEAD
         intent.putExtra("idLoaigd",idLoaigd);
         startActivityForResult(intent,REQUEST_CODE_ACTIVITY_2);
     }
@@ -122,8 +106,5 @@ public class PhanLoai extends AppCompatActivity implements PhanLoaiAdapter.PhanL
                 getDanhsachGD(idLoaigd);
             }
         }
-=======
-        startActivity(intent);
->>>>>>> nguyencongvan
     }
 }

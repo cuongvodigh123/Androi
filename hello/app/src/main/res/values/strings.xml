@@ -4,11 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-<<<<<<< HEAD
     <string name="next">Tiếp theo</string>
-=======
-    <string name="next">Next</string>
->>>>>>> nguyencongvan
     <string name="previous">Previous</string>
     <string-array name="phanloai">
         <item>Sức khỏe</item>
@@ -105,8 +101,4 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-=======
-    <string name="_4_2024">4 / 2024</string>
->>>>>>> nguyencongvan
 </resources>

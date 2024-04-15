@@ -61,10 +61,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-<<<<<<< HEAD
-=======
-    implementation("androidx.activity:activity:1.8.0")
->>>>>>> nguyencongvan
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -75,9 +71,4 @@ dependencies {
 
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.github.bumptech.glide:glide:4.12.0")
-<<<<<<< HEAD
-=======
-
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
->>>>>>> nguyencongvan
 }
