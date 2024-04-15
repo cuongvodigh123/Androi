@@ -26,19 +26,37 @@
         </activity>
         <activity
             android:name=".NhapThuChi"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".LichSuGiaoDich"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ChiTiet_GiaoDich"
             android:exported="false" />
         <activity
             android:name=".PhanLoai"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".Nhap_date_mota"
-            android:exported="false"></activity>
+            android:exported="false"/>
+        <activity
+            android:name=".TheoDoiNganSach"
+            android:exported="false" />
+        <activity
+            android:name=".ThemNganSach"
+            android:exported="false" />
+        <activity
+            android:name=".SuaTongNganSach"
+            android:exported="false" />
+        <activity
+            android:name=".SuaNganSach"
+            android:exported="false" />
+        <activity
+            android:name=".NganSachView"
+            android:exported="false" />
+        <activity
+            android:name=".CaiDat"
+            android:exported="false" />
     </application>
 
 </manifest>

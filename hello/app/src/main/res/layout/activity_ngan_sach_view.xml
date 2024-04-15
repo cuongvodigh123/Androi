@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NganSachView">
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_shape"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout2">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="80dp"
+            android:gravity="center"
+            android:text="Thiết lập ngân sách chi tiêu hàng tháng"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical|end"
+            android:src="@drawable/baseline_home_24" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout1"
+        android:layout_marginTop="10dp"
+        android:background="#72D499">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:text="Tổng ngân sách (vnđ):"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tongNganSach"
+            android:text="1000000 (vnđ)"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginEnd="40dp"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/baseline_create_24"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/suaTongNS" />
+
+    </FrameLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rview"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rview"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="75dp"
+        android:background="#00FFFF">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/boxes" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:text="Lưu động:"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:layout_marginStart="75dp"/>
+
+        <TextView
+            android:id="@+id/luudong"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_height="70dp"
+            android:text="1000000000"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:gravity="center_vertical"/>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/addns"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/baseline_control_point_24"
+        app:layout_constraintTop_toBottomOf="@id/rview"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

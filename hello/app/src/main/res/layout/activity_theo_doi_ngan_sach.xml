@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TheoDoiNganSach">
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_shape"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frameLayout2">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="80dp"
+            android:gravity="center"
+            android:text="Theo dõi chi tiêu theo ngân sách"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/homeButton"
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical|end"
+            android:src="@drawable/baseline_home_24" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FFFF99"
+        android:id="@+id/frameLayout2"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout1"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Tháng Năm"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:gravity="center"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#CCFFFF"
+        android:id="@+id/frameLayout3"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout2"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/extext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng ngân sách"
+            android:textSize="25sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tongreal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng ngân sách"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/tongset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tổng ngân sách"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="65dp"/>
+
+    </FrameLayout>
+
+    <ExpandableListView
+        android:id="@+id/expandableTheoDoi"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout3"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:divider="@android:color/black"
+        android:dividerHeight="0.5dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

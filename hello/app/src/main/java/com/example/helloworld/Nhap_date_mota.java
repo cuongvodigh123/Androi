@@ -1,6 +1,10 @@
 package com.example.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -13,12 +17,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Build;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.DialogInterface;
 
 import java.sql.Date;
 
 import DATABASE.SQLiteHelper;
 import model.GiaoDich;
 import model.LoaiGD;
+import model.NganSach;
+
+import android.Manifest;
 
 public class Nhap_date_mota extends AppCompatActivity {
     private ImageView back,home;
@@ -31,6 +44,7 @@ public class Nhap_date_mota extends AppCompatActivity {
     private int kieugd;
     private EditText editTextTextMultiLine;
     private SQLiteHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +75,60 @@ public class Nhap_date_mota extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Date date = Date.valueOf(editTextDate.getText().toString());
+                Intent intent = new Intent(Nhap_date_mota.this, MainActivity.class);
+
+                //Thông báo khi vượt mức
+                final java.util.Calendar c = java.util.Calendar.getInstance();
+                int month = c.get(java.util.Calendar.MONTH) + 1;
+                int year = c.get(java.util.Calendar.YEAR);
+                String strcheck1 = String.format("%d-%02d-%02d", year, month, 1);
+                String strcheck2 = String.format("%d-%02d-%02d", year, month, c.get(java.util.Calendar.DAY_OF_MONTH));
+                Date check1 = Date.valueOf(strcheck1);
+                Date check2 = Date.valueOf(strcheck2);
+                if (date.compareTo(check1) >= 0 && date.compareTo(check2) <= 0 && kieugd == 1) {
+                    NganSach ns = db.getNganSachByLoaiGD(String.valueOf(loaiGD.getID()));
+                    if (ns != null) {
+                        float tieudung = db.tongChi1DanhMuc(loaiGD, strcheck1, strcheck2) + sotien;
+                        float hanmuc = ns.getNganSach();
+                        if (ns.getThongBao().charAt(3) == '1' && tieudung > hanmuc) {
+                            intent.putExtra("thongbao", 1);
+                            intent.putExtra("vuotmuc", "100%");
+                        } else if (ns.getThongBao().charAt(2) == '1' && tieudung > (hanmuc*3/4)){
+                            intent.putExtra("thongbao", 1);
+                            intent.putExtra("vuotmuc", "75%");
+                        } else if (ns.getThongBao().charAt(1) == '1' && tieudung > (hanmuc/2)) {
+                            intent.putExtra("thongbao", 1);
+                            intent.putExtra("vuotmuc", "50%");
+                        } else if (ns.getThongBao().charAt(0) == '1' && tieudung > (hanmuc/4)) {
+                            intent.putExtra("thongbao", 1);
+                            intent.putExtra("vuotmuc", "25%");
+                        }
+                    }
+                    NganSach tongns = db.getNganSachByLoaiGD("1");
+                    if (tongns != null) {
+                        float hanmuctong = tongns.getNganSach();
+                        float tongchitieu = db.tongChi1DanhMuc(null, strcheck1, strcheck2);
+                        if (tongns.getThongBao().charAt(3) == '1' && tongchitieu > hanmuctong) {
+                            intent.putExtra("thongbaotong", 1);
+                            intent.putExtra("vuotmuctong", "100%");
+                        } else if (tongns.getThongBao().charAt(2) == '1' && tongchitieu > (hanmuctong * 3 / 4)) {
+                            intent.putExtra("thongbaotong", 1);
+                            intent.putExtra("vuotmuctong", "75%");
+                        } else if (tongns.getThongBao().charAt(1) == '1' && tongchitieu > (hanmuctong / 2)) {
+                            intent.putExtra("thongbaotong", 1);
+                            intent.putExtra("vuotmuctong", "50%");
+                        } else if (tongns.getThongBao().charAt(0) == '1' && tongchitieu > (hanmuctong / 4)) {
+                            intent.putExtra("thongbaotong", 1);
+                            intent.putExtra("vuotmuctong", "25%");
+                        }
+                    }
+                }
 
                 String mota = editTextTextMultiLine.getText().toString();
                 GiaoDich giaoDich = new GiaoDich(1,date,sotien,loaiGD,mota,kieugd);
                 long id = db.insertGiaoDich(giaoDich);
                 Toast.makeText(getApplicationContext(),"id: "+id,Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Nhap_date_mota.this, MainActivity.class);
+
                 startActivity(intent);
             }
         });

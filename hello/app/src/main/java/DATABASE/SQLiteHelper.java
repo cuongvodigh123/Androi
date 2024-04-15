@@ -5,22 +5,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.helloworld.R;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 
 import model.GiaoDich;
 import model.LoaiGD;
+import model.NganSach;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="ChiTieu.db";
@@ -431,6 +429,21 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 "('2024-12-30', 69000, 4, '', 1)," +
                 "('2024-12-31', 98000, 7, '', 2)" ;
         db.execSQL(insertValues1);
+        String createTableNS = "CREATE TABLE NganSach (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "ngansach REAL," +
+                "loaigd INTEGER," +
+                "thongbao TEXT," +
+                "FOREIGN KEY(loaigd) REFERENCES loaiGD(id)" +
+                ")";
+        db.execSQL(createTableNS);
+        String insert1 = "INSERT INTO NganSach (ngansach, loaigd, thongbao) VALUES " +
+                "(2000000, 1, '1111')," +
+                "(10000, 2, '1000')," +
+                "(500000, 4, '0110')," +
+                "(80000, 3, '0011')," +
+                "(1000000, 9, '1001')";
+        db.execSQL(insert1);
     }
 
     @Override
@@ -447,6 +460,21 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String order = "id ASC";
         Cursor rs = sqLiteDatabase.query("loaiGD",null,null,
                                             null,null,null,order);
+        while (rs!=null && rs.moveToNext()){
+            int id = rs.getInt(0);
+            int src = rs.getInt(1);
+            String name = rs.getString(2);
+            list.add(new LoaiGD(id,src,name));
+        }
+        return list;
+    }
+    public List<LoaiGD> getAllLoaiGDExcept1(){
+        List<LoaiGD> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String order = "id ASC";
+        String whereClause = "id != 1";
+        Cursor rs = sqLiteDatabase.query("loaiGD",null,whereClause,
+                null,null,null,order);
         while (rs!=null && rs.moveToNext()){
             int id = rs.getInt(0);
             int src = rs.getInt(1);
@@ -608,5 +636,146 @@ public class SQLiteHelper extends SQLiteOpenHelper {
             list.add(new GiaoDich(id, Date.valueOf(date), Float.parseFloat(sotien), loaiGD1, mota, inorout));
         }
         return list;
+    }
+    public List<NganSach> getAllNS(){
+        List<NganSach> list = new ArrayList<>();
+        SQLiteDatabase st = getReadableDatabase();
+        String order="id ASC";
+        Cursor rs = st.query("NganSach", null, null,
+                null, null, null, order);
+        while (rs != null && rs.moveToNext()){
+            int id = rs.getInt(0);
+            float nganSach = rs.getFloat(1);
+            String idgd = rs.getString(2);
+            String thongBao = rs.getString(3);
+            if(Objects.equals(idgd, "1")){
+                continue;
+            }
+            LoaiGD loaiGD = getLoaiGD(idgd);
+            list.add(new NganSach(id, nganSach, loaiGD, thongBao));
+        }
+        return list;
+    }
+
+    public List<String> getAllNSLoaiName(){
+        List<String> list = new ArrayList<>();
+        SQLiteDatabase st = getReadableDatabase();
+        String order="id ASC";
+        Cursor rs = st.query("NganSach", null, null,
+                null, null, null, order);
+        while (rs != null && rs.moveToNext()){
+            String idgd = rs.getString(2);
+            if(Objects.equals(idgd, "1")){
+                continue;
+            }
+            LoaiGD loaiGD = getLoaiGD(idgd);
+            list.add(loaiGD.getNameIcon());
+        }
+        return list;
+    }
+
+    public long addNS(NganSach ns){
+        ContentValues values = new ContentValues();
+        values.put("ngansach", ns.getNganSach());
+        values.put("loaigd", ns.getLoaiGD().getID());
+        values.put("thongbao" ,ns.getThongBao());
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        return sqLiteDatabase.insert("NganSach", null, values);
+    }
+
+    public NganSach getNganSachByLoaiGD(String loaigd){
+        String whereClause = "loaigd = ?";
+        String[] whereArgs = {loaigd};
+        SQLiteDatabase st = getReadableDatabase();
+        Cursor rs = st.query("NganSach", null, whereClause, whereArgs,
+                null, null, null);
+        if (rs != null && rs.moveToNext()){
+            int id = rs.getInt(0);
+            float nganSach = rs.getFloat(1);
+            String thonBao = rs.getString(3);
+            LoaiGD loaiGD = getLoaiGD(loaigd);
+            NganSach ns = new NganSach(id, nganSach, loaiGD, thonBao);
+            return ns;
+        } else {
+            return null;
+        }
+    }
+
+    public float getTongNganSach(){
+        String whereClause = "loaigd = 1";
+        SQLiteDatabase st = getReadableDatabase();
+        Cursor rs = st.query("NganSach", null, whereClause,
+                null, null, null, null);
+        if (rs != null && rs.moveToNext()){
+            return rs.getFloat(1);
+        } else {
+            return 0;
+        }
+    }
+
+    public float getLuuDong(){
+        float tongSet = 0, tongReal = 0;
+        String whereClause1 = "loaigd = 1";
+        SQLiteDatabase st = getReadableDatabase();
+        Cursor rs = st.query("NganSach", null, whereClause1,
+                null, null, null, null);
+        if (rs != null && rs.moveToNext()){
+            tongSet = rs.getFloat(1);
+        }
+        String whereClause2 = "loaigd != 1";
+        st = getReadableDatabase();
+        rs = st.query("NganSach", null, whereClause2,
+                null, null, null, null);
+        while (rs != null && rs.moveToNext()){
+            tongReal += rs.getFloat(1);
+        }
+        return tongSet - tongReal;
+    }
+
+    public int updateNS(NganSach ns){
+        ContentValues values = new ContentValues();
+        values.put("ngansach", ns.getNganSach());
+        values.put("loaigd", ns.getLoaiGD().getID());
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String whereClause ="id = ?";
+        String[] whereArgs = {Integer.toString(ns.getId())};
+        return sqLiteDatabase.update("NganSach", values, whereClause, whereArgs);
+    }
+
+    public int deleteNS(int id){
+        String whereClause ="id = ?";
+        String[] whereArgs = {Integer.toString(id)};
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        return sqLiteDatabase.delete("NganSach", whereClause, whereArgs);
+    }
+
+    public float tongChi1DanhMuc(LoaiGD loaiGD,String date1, String date2) {
+        float tong = 0;
+        StringBuilder whereClause = new StringBuilder();
+        whereClause.append("inorout = 1 AND date >=? AND date <=?");
+        List<String> whereArgsList = new ArrayList<>();
+        whereArgsList.add(date1);
+        whereArgsList.add(date2);
+        if (loaiGD != null){
+            whereClause.append("AND loaigd = ?");
+            whereArgsList.add(String.valueOf(loaiGD.getID()));
+        }
+        String[] whereArgs = whereArgsList.toArray(new String[0]);
+        SQLiteDatabase st = getReadableDatabase();
+        Cursor rs = st.query("GiaoDich", null, whereClause.toString(), whereArgs,
+                null, null, null);
+        while (rs != null && rs.moveToNext()){
+            tong += rs.getFloat(2);
+        }
+        return tong;
+    }
+
+    public int updateNSThongBao(int id, String thongBao){
+        ContentValues values = new ContentValues();
+        values.put("thongbao", thongBao);
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String whereClause ="id = ?";
+        String[] whereArgs = {Integer.toString(id)};
+        return sqLiteDatabase.update("NganSach", values, whereClause, whereArgs);
     }
 }
