@@ -146,6 +146,32 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button_xhtc"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Biểu đồ xu hướng tài chính"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/button_sstc"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Biểu đồ so sánh thu chi"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
         </ScrollView>
 

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button, button1, button2, button3, button4, button5, button6;
+    private Button button, button1, button2, button3, button4, button5, button6,buttonXHTC,buttonSSTC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +63,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CaiDat.class);
+                startActivity(intent);
+            }
+        });
+        buttonXHTC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BieuDoXuHuongTaiChinh.class);
+                startActivity(intent);
+            }
+        });
+        buttonSSTC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BieuDoSoSanhThuChi.class);
                 startActivity(intent);
             }
         });
@@ -120,5 +134,7 @@ public class MainActivity extends AppCompatActivity {
         button4 = findViewById(R.id.button4);
         button5 = findViewById(R.id.button5);
         button6 = findViewById(R.id.button6);
+        buttonXHTC = findViewById(R.id.button_xhtc);
+        buttonSSTC = findViewById(R.id.button_sstc);
     }
 }

@@ -136,7 +136,7 @@ public class Nhap_date_mota extends AppCompatActivity {
         loaiGD = args.getParcelable("loaigd");
         sotien = intent.getFloatExtra("sotien",0);
         kieugd = intent.getIntExtra("kieugd",1);
-        textView.setText(sotien+"00 đ");
+        textView.setText(sotien+" đồng");
         textView11.setText(loaiGD.getNameIcon());
         if(kieugd==1) button1.setText("Chi Phí");
         else button1.setText("Thu nhập");

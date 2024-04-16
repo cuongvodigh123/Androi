@@ -63,7 +63,7 @@ public class ChiTiet_GiaoDich extends AppCompatActivity {
         System.out.println(giaoDich.getMota()+" Mo ta giao dich chi tiet");
         LoaiGD loaiGD = (LoaiGD) args.getParcelable("keyLoaiGD");
         idgd.setText(" Mã giao dịch: "+ giaoDich.getID());
-        sotien.setText(" Số tiền: "+giaoDich.getSotien()+" nghìn đồng");
+        sotien.setText(" Số tiền: "+giaoDich.getSotien()+" đồng");
         date.setText(" Ngày: "+giaoDich.getDate());
         loaigd.setText(""+loaiGD.getNameIcon());
         mota.setText(" Mô tả: "+giaoDich.getMota());

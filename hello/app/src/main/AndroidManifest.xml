@@ -57,6 +57,18 @@
         <activity
             android:name=".CaiDat"
             android:exported="false" />
+        <activity
+            android:name=".ChiTiet_BieuDoSoSanhThuChi"
+            android:exported="false" />
+        <activity
+            android:name=".BieuDoSoSanhThuChi"
+            android:exported="false" />
+        <activity
+            android:name=".ChiTiet_BieuDoXuHuongTaiChinh"
+            android:exported="false" />
+        <activity
+            android:name=".BieuDoXuHuongTaiChinh"
+            android:exported="false" />
     </application>
 
 </manifest>
