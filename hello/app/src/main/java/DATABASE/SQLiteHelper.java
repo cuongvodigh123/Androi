@@ -5,12 +5,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.helloworld.R;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -778,4 +781,55 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String[] whereArgs = {Integer.toString(id)};
         return sqLiteDatabase.update("NganSach", values, whereClause, whereArgs);
     }
+    public List<GiaoDich> getTransactionsInRange(String startDate, String endDate, int inorout) {
+        List<GiaoDich> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("SELECT id, date, sotien, loaigd, chitiet, inorout ");
+        queryBuilder.append("FROM GiaoDich ");
+
+        List<String> whereArgsList = new ArrayList<>();
+
+        // Xây dựng điều kiện cho truy vấn
+        queryBuilder.append("WHERE date >= ? AND date <= ? ");
+        whereArgsList.add(startDate); // Không cần chuyển đổi định dạng ngày tháng ở đây
+        whereArgsList.add(endDate); // Không cần chuyển đổi định dạng ngày tháng ở đây
+
+        // Thêm điều kiện cho inorout
+        queryBuilder.append("AND inorout = ? ");
+        whereArgsList.add(String.valueOf(inorout));
+
+        String[] whereArgs = whereArgsList.toArray(new String[0]);
+
+        Cursor rs = sqLiteDatabase.query("GiaoDich", null, "date >= ? AND date <= ? AND inorout = ?", whereArgs, null, null, null);
+
+        while (rs != null && rs.moveToNext()) {
+            int id = rs.getInt(0);
+            String dateString = rs.getString(1); // Lấy dữ liệu ngày dưới dạng chuỗi ngày tháng
+            String sotien = rs.getString(2);
+            String loaigd = rs.getString(3); // Lấy tên loại giao dịch từ cột "loaigd"
+            String mota = rs.getString(4);
+            int inoroutValue = rs.getInt(5);
+
+            // Chuyển đổi từ chuỗi ngày tháng sang java.sql.Date
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            java.sql.Date sqlDate = null;
+            try {
+                java.util.Date parsedDate = dateFormat.parse(dateString);
+                sqlDate = new java.sql.Date(parsedDate.getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            LoaiGD loaiGD = new LoaiGD();
+            loaiGD.setNameIcon(loaigd); // Sử dụng setter để thiết lập tên loại giao dịch
+
+            list.add(new GiaoDich(id, sqlDate, Float.parseFloat(sotien), loaiGD, mota, inoroutValue));
+        }
+        Log.d("SQL_QUERY", queryBuilder.toString()); // In ra câu truy vấn SQL
+
+        return list;
+    }
+
 }

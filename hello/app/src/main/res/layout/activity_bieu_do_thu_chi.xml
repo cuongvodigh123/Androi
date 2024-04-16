@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BieuDoThuChi">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutBDTC"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/ic_shape"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backBDTC"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="35dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ImageView
+            android:id="@+id/homeBDTC"
+            android:layout_width="36dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="370dp"
+            android:layout_marginTop="35dp"
+            android:background="#A6C5A6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/textViewBDTC2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="125dp"
+            android:layout_marginTop="35dp"
+            android:text="Biểu đồ thu chi"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutBDTC">
+
+        <RadioButton
+            android:id="@+id/radioButtonWeek"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Tuần"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonMonth"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Tháng"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/radioButtonYear"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Năm"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+    </RadioGroup>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button, button1, button2, button3, button4, button5, button6,buttonXHTC,buttonSSTC;
+    private Button button, button1, button2, button3, button4, button5, button6,buttonXHTC,buttonSSTC, buttonBDTC, buttonPTTDM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +81,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonBDTC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BieuDoThuChi.class);
+                startActivity(intent);
+            }
+        });
+        buttonPTTDM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PhanTichTheoDanhMuc.class);
+                startActivity(intent);
+            }
+        });
+
         //Thông báo vượt mức
         Intent intent = getIntent();
         if(intent != null){
@@ -136,5 +151,7 @@ public class MainActivity extends AppCompatActivity {
         button6 = findViewById(R.id.button6);
         buttonXHTC = findViewById(R.id.button_xhtc);
         buttonSSTC = findViewById(R.id.button_sstc);
+        buttonBDTC = findViewById(R.id.buttonBDTC);
+        buttonPTTDM = findViewById(R.id.buttonPTTDM);
     }
 }

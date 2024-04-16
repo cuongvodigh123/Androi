@@ -172,6 +172,31 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/buttonBDTC"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Biểu đồ thu chi"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Button
+                    android:id="@+id/buttonPTTDM"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Phân tích theo danh mục"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
         </ScrollView>
 
